@@ -24,3 +24,15 @@ function createHearts(type) {
 document.querySelector('.yes-btn').addEventListener('click', function() {
     window.location.href = "valentine.html"; // انتقال به صفحه دوم
 });
+document.querySelector('.no-btn').addEventListener('click', function() {
+    for (let i = 0; i < 20; i++) { // تعداد قلب‌های شکسته
+        let heart = document.createElement('div');
+        heart.classList.add('broken-heart');
+        heart.style.left = Math.random() * window.innerWidth + 'px'; // مکان تصادفی افقی
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove(); // حذف قلب بعد از انیمیشن
+        }, 4000);
+    }
+});
