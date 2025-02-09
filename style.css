@@ -55,3 +55,53 @@ h1 {
     font-size: 30px;
     animation: fall 5s linear infinite;
 }
+.message-box {
+    background-color: rgba(255, 255, 255, 0.9); /* پس‌زمینه شفاف */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 30px;
+    color: #ff6f61;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.playlist-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.playlist-link:hover {
+    background-color: #e65a50;
+}
+
+/* متن‌های شناور */
+@keyframes floatText {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { transform: translateY(-20px); opacity: 1; }
+    100% { transform: translateY(-40px); opacity: 0; }
+}
+
+.floating-text {
+    position: absolute;
+    font-size: 20px;
+    color: #ff6f61;
+    animation: floatText 5s infinite ease-in-out;
+}
