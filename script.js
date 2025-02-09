@@ -2,8 +2,18 @@ document.querySelector('.yes-btn').addEventListener('click', function() {
     createHearts('💖'); // قلب خوشگل اضافه کن
 });
 
-document.querySelector('.no-btn').addEventListener('click', function() {
-    createHearts('💔'); // قلب شکسته اضافه کن
+document.getElementById("noBtn").addEventListener("click", function() {
+    const container = document.body;
+    
+    for (let i = 0; i < 20; i++) { // تعداد قلب‌های شکسته
+        let heart = document.createElement("div");
+        heart.classList.add("broken-heart");
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.animationDuration = (Math.random() * 2 + 2) + "s"; // سرعت تصادفی
+        container.appendChild(heart);
+
+        setTimeout(() => { heart.remove(); }, 4000); // حذف بعد از ۴ ثانیه
+    }
 });
 
 function createHearts(type) {
