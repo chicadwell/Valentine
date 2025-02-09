@@ -9,17 +9,26 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
+    animation: backgroundAnimation 10s infinite linear;
 }
 
 .container {
     text-align: center;
+    position: relative;
 }
 
 .title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #005f99;
     margin-bottom: 20px;
-    animation: fadeIn 2s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
+}
+
+.message {
+    font-size: 1.5rem;
+    color: #003366;
+    margin-bottom: 40px;
+    animation: fadeInText 4s ease-in-out;
 }
 
 .buttons {
@@ -28,26 +37,16 @@ body {
     gap: 20px;
 }
 
-.btn {
+button {
     padding: 15px 30px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s;
 }
 
-.yes-btn {
-    background-color: #0077b6;
-    color: white;
-}
-
-.no-btn {
-    background-color: #ff4d6d;
-    color: white;
-}
-
-.btn:hover {
+button:hover {
     transform: scale(1.1);
 }
 
@@ -60,10 +59,50 @@ body {
     pointer-events: none;
 }
 
+/* انیمیشن پس‌زمینه */
+@keyframes backgroundAnimation {
+    0% { background-color: #d6e6ff; }
+    50% { background-color: #b3cde0; }
+    100% { background-color: #d6e6ff; }
+}
+
 /* افکت فید این برای متن */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* دکمه‌ها */
+.yesBtn {
+    background-color: #0077b6;
+    color: white;
+}
+
+.noBtn {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+/* لینک تلگرام */
+.telegram-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+.telegram-link:hover {
+    transform: scale(1.1);
 }
 
 /* انیمیشن قلب‌ها */
@@ -71,84 +110,9 @@ body {
     0% { transform: translateY(0) scale(1); opacity: 1; }
     100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
 }
-.second-page {
-    background-color: #b3cde0; /* آبی پاستلی ملایم */
-    text-align: center;
-    color: #003366;
-    font-family: 'Quicksand', sans-serif;
-    padding: 20px;
-}
 
-.content {
-    margin-top: 50px;
-}
-
-.love-text {
-    font-size: 2.5rem;
-    font-weight: bold;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.note {
-    font-size: 1.5rem;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 15px;
-    border-radius: 10px;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.uno-card {
-    width: 200px;
-    margin-top: 20px;
-}
-
-.links {
-    margin-top: 20px;
-}
-
-.btn {
-    background-color: #0077b6;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.btn:hover {
-    transform: scale(1.1);
-}
-@keyframes fall {
-    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-}
-
-.broken-heart {
-    position: absolute;
-    top: -10vh;
-    width: 40px;
-    height: 40px;
-    background-image: url('broken-heart.png'); /* آدرس عکس قلب شکسته */
-    background-size: cover;
-    animation: fall 4s linear forwards;
-}
-.broken-heart {
-    position: fixed;
-    top: -50px;
-    font-size: 30px;
-    color: #ff4d4d;
-    opacity: 0.8;
-    animation: fallDown 4s linear forwards;
-}
-
-@keyframes fallDown {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(100vh); opacity: 0; }
-}
 .falling-heart {
-    position: fixed;
+    position: absolute;
     top: -50px;
     font-size: 30px;
     opacity: 0.8;
@@ -159,6 +123,8 @@ body {
     0% { transform: translateY(0); opacity: 1; }
     100% { transform: translateY(100vh); opacity: 0; }
 }
+
+/* قلب شکسته */
 .broken-heart {
     position: absolute;
     color: red;
@@ -170,4 +136,19 @@ body {
 @keyframes fall {
     0% { transform: translateY(0px); }
     100% { transform: translateY(100vh); }
+}
+
+/* تصویر uno-reverse */
+.uno-card {
+    width: 150px;
+    margin-top: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* افکت تایپ برای متن */
+@keyframes typing {
+    0% { width: 0; }
+    100% { width: 100%; }
 }
