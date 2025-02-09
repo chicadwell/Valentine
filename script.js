@@ -1,32 +1,28 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const yesBtn = document.getElementById("yesBtn");
-    const noBtn = document.getElementById("noBtn");
-    
-    yesBtn.addEventListener("click", function() {
-        createHearts("❤️"); // قلب سالم
-        setTimeout(() => { window.location.href = "page2.html"; }, 2000); // هدایت به صفحه دوم
-    });
+const yesBtn = document.getElementById('yes-btn');
+const noBtn = document.getElementById('no-btn');
+const heartsContainer = document.getElementById('hearts-container');
 
-    noBtn.addEventListener("click", function() {
-        fallingBrokenHearts(); // قلب شکسته
-    });
+// وقتی Yes زده شد
+yesBtn.addEventListener('click', () => {
+    createHearts('💖'); // قلب صورتی
+    setTimeout(() => {
+        window.location.href = 'page2.html'; // برو به صفحه دوم
+    }, 2000);
+});
 
-    function createHearts(emoji) {
-        const container = document.body;
-        for (let i = 0; i < 20; i++) {
-            let heart = document.createElement("div");
-            heart.classList.add("falling-heart");
-            heart.textContent = emoji;
-            heart.style.left = Math.random() * window.innerWidth + "px";
-            heart.style.animationDuration = (Math.random() * 2 + 2) + "s"; // سرعت تصادفی
-            container.appendChild(heart);
+// وقتی No زده شد
+noBtn.addEventListener('click', () => {
+    createHearts('💔'); // قلب شکسته
+});
 
-            setTimeout(() => { heart.remove(); }, 4000); // حذف بعد از ۴ ثانیه
-        }
+// تابع برای ایجاد قلب‌های در حال ریزش
+function createHearts(emoji) {
+    for (let i = 0; i < 50; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.textContent = emoji;
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+        heartsContainer.appendChild(heart);
     }
-
-    function fallingBrokenHearts() {
-        for (let i = 0; i < 20; i++) {
-            let heart = document.createElement("div");
-            heart.className = "broken-heart";
-            heart.style.left
+}
