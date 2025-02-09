@@ -120,3 +120,17 @@ body {
 .btn:hover {
     transform: scale(1.1);
 }
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.broken-heart {
+    position: absolute;
+    top: -10vh;
+    width: 40px;
+    height: 40px;
+    background-image: url('broken-heart.png'); /* آدرس عکس قلب شکسته */
+    background-size: cover;
+    animation: fall 4s linear forwards;
+}
