@@ -25,3 +25,20 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 });
+function fallingBrokenHearts() {
+    for (let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.className = "broken-heart";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(heart);
+        
+        let animation = heart.animate([
+            { transform: "translateY(0px)" },
+            { transform: "translateY(100vh)" }
+        ], { duration: 3000, iterations: 1 });
+
+        animation.onfinish = () => heart.remove();
+    }
+}
+
+document.getElementById("no").addEventListener("click", fallingBrokenHearts);
