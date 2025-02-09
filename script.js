@@ -21,3 +21,6 @@ function createHearts(type) {
         }, 5000); // حذف بعد از 5 ثانیه
     }
 }
+document.querySelector('.yes-btn').addEventListener('click', function() {
+    window.location.href = "valentine.html"; // انتقال به صفحه دوم
+});
