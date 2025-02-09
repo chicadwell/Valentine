@@ -1,41 +1,57 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const yesBtn = document.getElementById("yesBtn");
-    const noBtn = document.getElementById("noBtn");
-    
-    yesBtn.addEventListener("click", function() {
-        createHearts("❤️"); // قلب سالم
-        setTimeout(() => { window.location.href = "page2.html"; }, 2000); // هدایت به صفحه بعدی
-    });
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #a2d5f2, #f2a2d5); /* تم آبی پاستلی */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
 
-    noBtn.addEventListener("click", function() {
-        createHearts("💔"); // قلب شکسته
-        fallingBrokenHearts(); // افکت قلب شکسته
-    });
+.container {
+    text-align: center;
+}
 
-    function createHearts(emoji) {
-        const container = document.getElementById("heart-container");
-        for (let i = 0; i < 20; i++) {
-            let heart = document.createElement("div");
-            heart.classList.add("falling-heart");
-            heart.textContent = emoji;
-            heart.style.left = Math.random() * window.innerWidth + "px";
-            heart.style.animationDuration = (Math.random() * 2 + 2) + "s"; // سرعت تصادفی
-            container.appendChild(heart);
+h1 {
+    font-size: 40px;
+    color: #ffffff; /* رنگ متن سفید */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-            setTimeout(() => { heart.remove(); }, 4000); // حذف بعد از ۴ ثانیه
-        }
-    }
+.buttons button {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
-    function fallingBrokenHearts() {
-        for (let i = 0; i < 20; i++) {
-            let heart = document.createElement("div");
-            heart.classList.add("falling-heart");
-            heart.textContent = "💔";
-            heart.style.left = Math.random() * window.innerWidth + "px";
-            heart.style.animationDuration = (Math.random() * 2 + 2) + "s"; // سرعت تصادفی
-            document.body.appendChild(heart);
+#yes-btn {
+    background-color: #ff6f61; /* رنگ دکمه Yes */
+    color: white;
+}
 
-            setTimeout(() => { heart.remove(); }, 4000); // حذف بعد از ۴ ثانیه
-        }
-    }
-});
+#no-btn {
+    background-color: #a8a8a8; /* رنگ دکمه No */
+    color: white;
+}
+
+.buttons button:hover {
+    transform: scale(1.1);
+}
+
+/* افکت قلب‌های در حال ریزش */
+@keyframes fall {
+    0% { transform: translateY(-100px); }
+    100% { transform: translateY(100vh); }
+}
+
+.heart {
+    position: absolute;
+    font-size: 30px;
+    animation: fall 5s linear infinite;
+}
