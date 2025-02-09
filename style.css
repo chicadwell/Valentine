@@ -134,3 +134,16 @@ body {
     background-size: cover;
     animation: fall 4s linear forwards;
 }
+.broken-heart {
+    position: fixed;
+    top: -50px;
+    font-size: 30px;
+    color: #ff4d4d;
+    opacity: 0.8;
+    animation: fallDown 4s linear forwards;
+}
+
+@keyframes fallDown {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
