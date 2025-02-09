@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function() {
     
     yesBtn.addEventListener("click", function() {
         createHearts("❤️"); // قلب سالم
-        setTimeout(() => { window.location.href = "page2.html"; }, 2000); // هدایت به صفحه بعدی
+        setTimeout(() => { window.location.href = "page2.html"; }, 2000); // هدایت به صفحه دوم
     });
 
     noBtn.addEventListener("click", function() {
-        createHearts("💔"); // قلب شکسته
+        fallingBrokenHearts(); // قلب شکسته
     });
 
     function createHearts(emoji) {
@@ -24,4 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
             setTimeout(() => { heart.remove(); }, 4000); // حذف بعد از ۴ ثانیه
         }
     }
-});
+
+    function fallingBrokenHearts() {
+        for (let i = 0; i < 20; i++) {
+            let heart = document.createElement("div");
+            heart.className = "broken-heart";
+            heart.style.left
