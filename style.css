@@ -9,25 +9,25 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
+    position: relative;
 }
 
+/* استایل برای صفحه اول */
 .container {
     text-align: center;
-    animation: fadeIn 2s ease-in-out;
 }
 
 .title {
     font-size: 2.5rem;
     color: #005f99;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     animation: fadeIn 2s ease-in-out;
 }
 
-.subtitle {
-    font-size: 1.2rem;
+.sub-title {
+    font-size: 1.5rem;
     color: #0077b6;
-    margin-bottom: 30px;
-    animation: fadeIn 3s ease-in-out;
+    margin-bottom: 20px;
 }
 
 .buttons {
@@ -36,7 +36,7 @@ body {
     gap: 20px;
 }
 
-button {
+.btn {
     padding: 15px 30px;
     font-size: 1.5rem;
     border: none;
@@ -45,18 +45,30 @@ button {
     transition: transform 0.3s ease, background-color 0.3s;
 }
 
-button#yesBtn {
+.yes-btn {
     background-color: #0077b6;
     color: white;
 }
 
-button#noBtn {
+.no-btn {
     background-color: #ff4d6d;
     color: white;
 }
 
-button:hover {
+.btn:hover {
     transform: scale(1.1);
+}
+
+/* افکت فید این برای متن */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* افکت قلب‌ها */
+@keyframes float {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
 }
 
 #heart-container {
@@ -68,19 +80,26 @@ button:hover {
     pointer-events: none;
 }
 
-.second-page {
-    background-color: #b3cde0;
+.falling-heart {
+    position: absolute;
+    top: -50px;
+    font-size: 30px;
+    animation: fall 4s linear forwards;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(100vh); }
+}
+
+/* استایل صفحه دوم */
+.content {
     text-align: center;
-    color: #003366;
-    font-family: 'Quicksand', sans-serif;
     padding: 20px;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
 }
 
 .love-text {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #003366;
     animation: fadeIn 2s ease-in-out;
@@ -93,6 +112,7 @@ button:hover {
     border-radius: 10px;
     display: inline-block;
     margin-top: 20px;
+    color: #003366;
 }
 
 .uno-card {
@@ -118,50 +138,23 @@ button:hover {
     transform: scale(1.1);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes fall {
-    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-}
-
-.broken-heart {
+/* پس زمینه متحرک در صفحه دوم */
+.background-text {
     position: absolute;
-    top: -10vh;
-    width: 40px;
-    height: 40px;
-    background-image: url('broken-heart.png');
-    background-size: cover;
-    animation: fall 4s linear forwards;
-}
-
-@keyframes fallingHearts {
-    0% { transform: translateY(0px); opacity: 1; }
-    100% { transform: translateY(100vh); opacity: 0; }
-}
-
-.falling-heart {
-    position: absolute;
-    top: -50px;
-    font-size: 30px;
-    color: #ff4d6d;
-    opacity: 0.8;
-    animation: fallingHearts 4s linear forwards;
-}
-
-@keyframes fallingLoveText {
-    0% { transform: translateY(-100vh); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-#heart-container {
-    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-          }
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.1);
+    font-size: 3rem;
+    font-weight: bold;
+    animation: backgroundFall 5s infinite;
+}
+
+@keyframes backgroundFall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh); }
+}
