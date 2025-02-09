@@ -71,3 +71,52 @@ body {
     0% { transform: translateY(0) scale(1); opacity: 1; }
     100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
 }
+.second-page {
+    background-color: #b3cde0; /* آبی پاستلی ملایم */
+    text-align: center;
+    color: #003366;
+    font-family: 'Quicksand', sans-serif;
+    padding: 20px;
+}
+
+.content {
+    margin-top: 50px;
+}
+
+.love-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.note {
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.uno-card {
+    width: 200px;
+    margin-top: 20px;
+}
+
+.links {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
