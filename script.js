@@ -1,48 +1,27 @@
-document.querySelector('.yes-btn').addEventListener('click', function() {
-    createHearts('💖'); // قلب خوشگل اضافه کن
-});
-
-document.getElementById("noBtn").addEventListener("click", function() {
-    const container = document.body;
+document.addEventListener("DOMContentLoaded", function() {
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
     
-    for (let i = 0; i < 20; i++) { // تعداد قلب‌های شکسته
-        let heart = document.createElement("div");
-        heart.classList.add("broken-heart");
-        heart.style.left = Math.random() * window.innerWidth + "px";
-        heart.style.animationDuration = (Math.random() * 2 + 2) + "s"; // سرعت تصادفی
-        container.appendChild(heart);
+    yesBtn.addEventListener("click", function() {
+        createHearts("❤️"); // قلب سالم
+        setTimeout(() => { window.location.href = "page2.html"; }, 2000); // هدایت به صفحه بعدی
+    });
 
-        setTimeout(() => { heart.remove(); }, 4000); // حذف بعد از ۴ ثانیه
-    }
-});
+    noBtn.addEventListener("click", function() {
+        createHearts("💔"); // قلب شکسته
+    });
 
-function createHearts(type) {
-    const heartContainer = document.getElementById('heart-container');
-    for (let i = 0; i < 30; i++) { // تعداد قلب‌ها
-        let heart = document.createElement('div');
-        heart.innerHTML = type;
-        heart.classList.add('heart');
-        heart.style.left = Math.random() * 100 + 'vw'; // موقعیت تصادفی
-        heart.style.animationDuration = (Math.random() * 2 + 3) + 's'; // سرعت تصادفی
-        heartContainer.appendChild(heart);
-        
-        setTimeout(() => {
-            heart.remove();
-        }, 5000); // حذف بعد از 5 ثانیه
-    }
-}
-document.querySelector('.yes-btn').addEventListener('click', function() {
-    window.location.href = "valentine.html"; // انتقال به صفحه دوم
-});
-document.querySelector('.no-btn').addEventListener('click', function() {
-    for (let i = 0; i < 20; i++) { // تعداد قلب‌های شکسته
-        let heart = document.createElement('div');
-        heart.classList.add('broken-heart');
-        heart.style.left = Math.random() * window.innerWidth + 'px'; // مکان تصادفی افقی
-        document.body.appendChild(heart);
+    function createHearts(emoji) {
+        const container = document.body;
+        for (let i = 0; i < 20; i++) {
+            let heart = document.createElement("div");
+            heart.classList.add("falling-heart");
+            heart.textContent = emoji;
+            heart.style.left = Math.random() * window.innerWidth + "px";
+            heart.style.animationDuration = (Math.random() * 2 + 2) + "s"; // سرعت تصادفی
+            container.appendChild(heart);
 
-        setTimeout(() => {
-            heart.remove(); // حذف قلب بعد از انیمیشن
-        }, 4000);
+            setTimeout(() => { heart.remove(); }, 4000); // حذف بعد از ۴ ثانیه
+        }
     }
 });
